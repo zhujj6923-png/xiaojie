@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f4ed" />
+  <meta name="description" content="抽一张今日灵感卡，给生活一个小小的新方向。" />
+  <title>今日灵感签 · 抽一张，开始一点点</title>
+  <style>
+    :root{--paper:#f7f4ed;--ink:#26352d;--muted:#7c847c;--green:#315b46;--red:#ba5c43;--gold:#c9a66b;--line:#dedbd1;--card:#fffdf7}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Microsoft YaHei","Noto Sans SC",sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}.page{min-height:100vh;display:flex;flex-direction:column;overflow:hidden}.top{width:min(1120px,calc(100% - 42px));margin:auto;height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-size:13px;letter-spacing:.06em;font-weight:600;display:flex;gap:10px;align-items:center}.brandmark{width:27px;height:27px;border:1px solid var(--green);color:var(--green);border-radius:50%;display:grid;place-items:center;font-family:serif}.back{font-size:12px;color:#69756c}.back:hover{color:var(--red)}.wrap{width:min(930px,calc(100% - 42px));margin:auto}.hero{padding:51px 0 25px;text-align:center}.eyebrow{font:10px "Courier New",monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}h1{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:clamp(37px,6vw,58px);font-weight:500;letter-spacing:.15em;margin:14px 0 9px}.subtitle{color:var(--muted);font-size:13px;letter-spacing:.08em}.date{font:11px "Courier New",monospace;color:#92958d;margin-top:18px}.stage{position:relative;width:min(730px,100%);margin:12px auto 25px;min-height:360px;display:grid;place-items:center}.halo{position:absolute;width:345px;height:345px;border:1px solid #d7cbb4;border-radius:50%;box-shadow:0 0 0 22px #f7f4ed,0 0 0 23px #e7dfcf,0 0 0 49px #f7f4ed,0 0 0 50px #ece5d8}.leaf{position:absolute;color:#9eac8e;font-size:29px;z-index:0}.leaf.a{top:31px;left:19%}.leaf.b{right:17%;bottom:35px;color:#c99d76;transform:rotate(35deg)}.card{position:relative;z-index:1;width:min(450px,calc(100% - 28px));min-height:292px;background:var(--card);border:1px solid #e4ddce;box-shadow:0 20px 60px #4d45221a;padding:31px 36px 27px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform .35s, opacity .25s}.card:before,.card:after{content:"";position:absolute;width:27px;height:27px;border-color:#d8bd91;border-style:solid}.card:before{top:12px;left:12px;border-width:1px 0 0 1px}.card:after{bottom:12px;right:12px;border-width:0 1px 1px 0}.card.pop{animation:pop .5s ease}.card.ready .empty{display:none}.card:not(.ready) .result{display:none}.empty-icon{width:48px;height:48px;border:1px solid #d9c8a9;border-radius:50%;display:grid;place-items:center;color:var(--gold);font:21px Georgia,serif;margin:3px auto 15px}.empty-title{font:20px Georgia,"Noto Serif SC",serif;letter-spacing:.12em}.empty-copy{font-size:11px;color:#99968c;margin-top:9px}.stamp{font:10px "Courier New",monospace;letter-spacing:.15em;color:var(--red);border-bottom:1px solid #e2d8c6;padding-bottom:9px;margin-bottom:20px}.quote{font:22px/1.75 Georgia,"Noto Serif SC","Songti SC",serif;letter-spacing:.08em;color:var(--green);max-width:365px}.meaning{color:#7c8279;font-size:12px;line-height:1.8;margin-top:13px;max-width:360px}.prompt{margin-top:17px;padding:10px 14px;background:#f2efe5;color:#6d6659;font-size:11px;line-height:1.6;max-width:350px}.controls{display:flex;justify-content:center;align-items:center;gap:11px;margin:17px auto 0}.draw{border:0;background:var(--green);color:#fff;padding:14px 28px;min-width:164px;cursor:pointer;border-radius:2px;letter-spacing:.08em;box-shadow:0 5px 14px #315b4626;transition:.2s}.draw:hover{background:#244734;transform:translateY(-2px)}.soft{border:1px solid #cfd4c8;background:transparent;color:#536451;padding:13px 17px;cursor:pointer;border-radius:2px;font-size:12px}.soft:hover{border-color:var(--green)}.tip{text-align:center;color:#93958c;font-size:10px;margin:13px 0 0}.lower{width:min(930px,calc(100% - 42px));margin:26px auto 58px}.lower-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:16px}.lower-head h2{font:18px Georgia,"Noto Serif SC",serif;letter-spacing:.08em;margin:0}.lower-head span{font:10px "Courier New",monospace;letter-spacing:.13em;color:#9b9c93}.ideas{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.idea{background:#f1eee5;padding:16px 17px;min-height:88px;border:1px solid #eae6db}.idea b{display:block;color:var(--green);font:14px Georgia,"Noto Serif SC",serif;margin-bottom:6px}.idea span{color:#7d827a;font-size:10px;line-height:1.6}.footer{margin-top:auto;border-top:1px solid var(--line);padding:18px 0;color:#8a8d84;font-size:10px}.footerinner{width:min(1120px,calc(100% - 42px));margin:auto;display:flex;justify-content:space-between;gap:15px}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#26382d;color:white;padding:11px 17px;font-size:12px;transition:.25s;z-index:10}.toast.show{opacity:1;transform:translate(-50%,0)}@keyframes pop{0%{transform:rotateY(0) scale(.97);opacity:.55}100%{transform:rotateY(0) scale(1);opacity:1}}
+    @media(max-width:600px){.top{height:64px}.hero{padding-top:37px}.stage{min-height:335px;margin-top:20px}.halo{width:275px;height:275px;box-shadow:0 0 0 15px #f7f4ed,0 0 0 16px #e7dfcf,0 0 0 34px #f7f4ed,0 0 0 35px #ece5d8}.card{min-height:270px;padding:27px 22px}.quote{font-size:20px}.leaf.a{left:4%;top:30px}.leaf.b{right:4%;bottom:20px}.controls{flex-wrap:wrap}.draw{min-width:155px}.ideas{grid-template-columns:1fr}.idea{min-height:0;padding:13px 15px}.lower{margin-bottom:38px}.footerinner{flex-direction:column}.back{font-size:10px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="top"><a class="brand" href="/"><span class="brandmark">灵</span>小小灵感事务所</a><a class="back" href="/">← 返回网站首页</a></header>
+    <main class="wrap">
+      <section class="hero"><div class="eyebrow">A LITTLE PROMPT FOR TODAY</div><h1>今日灵感签</h1><div class="subtitle">抽一张，给今天一个新的开始。</div><div class="date" id="today"></div></section>
+      <section class="stage" aria-live="polite"><div class="halo"></div><span class="leaf a">✳</span><span class="leaf b">✳</span>
+        <div class="card" id="card"><div class="empty"><div class="empty-icon">签</div><div class="empty-title">今天的灵感，等你来抽</div><div class="empty-copy">把脑海里的声音放轻一点，选一条小路出发。</div></div><div class="result"><div class="stamp" id="category">TODAY'S NOTE</div><div class="quote" id="quote"></div><div class="meaning" id="meaning"></div><div class="prompt" id="prompt"></div></div></div>
+      </section>
+      <div class="controls"><button class="draw" id="draw" type="button">抽取今日灵感 <span>✦</span></button><button class="soft" id="share" type="button" hidden>复制 / 分享</button></div><p class="tip">没有标准答案，选一句此刻最想带走的话就好。</p>
+    </main>
+    <section class="lower"><div class="lower-head"><h2>灵感使用说明</h2><span>SMALL STEPS, REAL DAYS</span></div><div class="ideas"><div class="idea"><b>读一读</b><span>停几秒，看看这句话有没有碰到你今天的心情。</span></div><div class="idea"><b>做一点</b><span>把签上的提示变成一个小动作，不用等到准备完美。</span></div><div class="idea"><b>记下来</b><span>写下一句话、拍一张照片，留住今天的灵感。</span></div></div></section>
+    <footer class="footer"><div class="footerinner"><span>每日灵感签 · 一个轻松的自我探索小工具</span><span>签文仅供灵感与娱乐，不构成专业建议。</span></div></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+    const lots = [
+      {c:'开始 · BEGIN',q:'先做十分钟，答案会在路上出现。',m:'行动会带来新的信息。把目标缩小到可以立刻开始的程度。',p:'现在就打开那个你一直想开始的文件，写下第一行。'},
+      {c:'观察 · NOTICE',q:'今天，留意一件平常被你略过的小事。',m:'新的想法常常藏在熟悉的角落里。',p:'拍下一个吸引你目光的颜色、形状或光影。'},
+      {c:'连接 · CONNECT',q:'把一个好奇的问题，问给另一个人。',m:'对话能打开独自思考时看不见的门。',p:'给一位朋友发条消息，认真问问他最近在想什么。'},
+      {c:'创造 · CREATE',q:'先做一个粗糙的版本，再让它慢慢变好。',m:'完成一个小样，比想象一个完美作品更有力量。',p:'用纸笔或备忘录，画出你想法的第一个草图。'},
+      {c:'休息 · REST',q:'暂停不是离开，是给灵感留一点空地。',m:'休息也属于创作过程。允许自己暂时不产出。',p:'离开屏幕五分钟，喝水、伸展，看看窗外。'},
+      {c:'勇气 · COURAGE',q:'你不必不害怕，才可以往前一步。',m:'勇气不是没有顾虑，而是愿意带着顾虑开始。',p:'做一件你拖延的小事，只完成最小的一步。'},
+      {c:'好奇 · CURIOUS',q:'把“我不会”换成“我还没试过”。',m:'好奇心能把挫折变成探索的入口。',p:'找一个三分钟的小教程，学一个新动作或新知识。'},
+      {c:'整理 · CLEAR',q:'清出一点空间，新的东西才有地方来。',m:'整理环境，也是在整理注意力。',p:'收拾桌面上的一个角落，留下此刻真正需要的东西。'},
+      {c:'表达 · EXPRESS',q:'把你喜欢的东西，说出喜欢的理由。',m:'表达会让模糊的感受变得清晰。',p:'写三句话，描述最近让你开心的一件小事。'},
+      {c:'尝试 · EXPERIMENT',q:'换一种顺序，看看熟悉的事会不会不同。',m:'不必推翻全部，微小变化也能带来新发现。',p:'把今天的一件日常任务换个方法完成。'},
+      {c:'专注 · FOCUS',q:'一次只照亮一小块地方，也足够前进。',m:'专注不是做得更多，而是知道此刻先做什么。',p:'设一个十五分钟计时器，只做当前最重要的一件事。'},
+      {c:'分享 · SHARE',q:'让一个还不成熟的想法，先被看见。',m:'分享不是交出答案，而是邀请新的视角。',p:'把你的点子讲给一个愿意倾听的人。'},
+      {c:'记录 · KEEP',q:'把今天的灵光，留在纸上或相册里。',m:'记录能让转瞬即逝的念头，成为日后的线索。',p:'写下今天最想记住的一句话。'},
+      {c:'自然 · OUTSIDE',q:'走到户外，让脚步替思绪换个节奏。',m:'离开熟悉的空间，注意力会重新展开。',p:'散步十分钟，不听音频，只观察周围。'},
+      {c:'选择 · CHOOSE',q:'给重要的事留时间，也给不重要的事说不。',m:'每一次取舍，都是在决定把心力放在哪里。',p:'今天删掉一个不必要的待办，给自己留白。'},
+      {c:'学习 · LEARN',q:'向一个比昨天的自己多懂一点点的人致意。',m:'成长不必轰轰烈烈，持续的微小积累也会抵达远方。',p:'读两页书，或整理一个最近学到的知识点。'},
+      {c:'善意 · KINDNESS',q:'把善意说出来，让它有机会抵达别人。',m:'温柔不是小事，它会改变一天的质地。',p:'具体地感谢一个人，告诉他你珍惜什么。'},
+      {c:'放下 · LET GO',q:'有些问题，允许它今天暂时没有答案。',m:'不确定不等于停滞。你可以边生活，边等待答案浮现。',p:'写下你担心的事，再写下一件此刻能做的小事。'},
+      {c:'灵感 · SPARK',q:'去看一件与你正在做的事毫不相关的作品。',m:'跨领域的连接，会给旧问题带来新角度。',p:'听一首陌生风格的歌，或看一张不同主题的照片。'},
+      {c:'节奏 · RHYTHM',q:'按自己的速度走，持续比着急更重要。',m:'找到能长期坚持的节奏，比偶尔冲刺更可靠。',p:'把一个大任务拆成三个小步骤，只完成第一步。'},
+      {c:'感谢 · THANKS',q:'记住那些让你走到今天的人和事。',m:'感激让已经拥有的东西重新变得清晰。',p:'列出今天值得感谢的三件小事。'},
+      {c:'好玩 · PLAY',q:'做一件没有用途、只是让你开心的事。',m:'玩心不是浪费，它能让创造重新变得自由。',p:'涂鸦、哼歌、拼图，任选一件做五分钟。'},
+      {c:'边界 · BOUNDARY',q:'保护你的注意力，就是保护正在生长的东西。',m:'不是每件事都需要你立刻回应。',p:'关掉一个不必要的通知，给自己一段安静时间。'},
+      {c:'重来 · AGAIN',q:'重来不抹去经验，它让经验有了新去处。',m:'你已经不是上一次尝试时的那个你。',p:'挑一个曾经放下的点子，重新看它十分钟。'},
+      {c:'沟通 · LISTEN',q:'先听完，再决定自己要说什么。',m:'认真倾听，也许会让问题自己露出轮廓。',p:'今天一次对话里，专心听对方说完再回应。'},
+      {c:'灵巧 · MAKE',q:'用手做点什么，让思考有一个形状。',m:'动手会把抽象念头变成可以观察的东西。',p:'折纸、搭积木、做一道简单的小点心。'},
+      {c:'远方 · HORIZON',q:'抬头看看远处，暂时别盯着脚边的难题。',m:'拉开一点距离，能重新看见事情的比例。',p:'走到窗边或户外，望向最远的地平线。'},
+      {c:'诚实 · HONEST',q:'说出你真正想要什么，哪怕只对自己说。',m:'诚实是找到方向的第一步。',p:'补完这句话：“如果不用担心别人怎么看，我想……”'},
+      {c:'耐心 · PATIENCE',q:'让正在生长的事，拥有它自己的季节。',m:'有些成果需要时间，不必每天挖开土看它长了没有。',p:'给一个长期目标安排一次稳定、轻量的练习。'},
+      {c:'微光 · LIGHT',q:'今天的小小进步，也值得被认真看见。',m:'进步不一定有掌声，但它仍然真实。',p:'记下今天比昨天多做成的一件小事。'},
+      {c:'转换 · SHIFT',q:'把“为什么是我”换成“我能从中带走什么”。',m:'视角无法改变已经发生的事，却能改变你接下来怎么走。',p:'回想一个小挫折，写下其中学到的一点经验。'},
+      {c:'梦想 · IMAGINE',q:'认真想象一次，不急着问它能不能实现。',m:'先允许愿望完整出现，再决定如何靠近它。',p:'写下一个你希望一年后的自己正在做的场景。'},
+      {c:'边走边看 · WANDER',q:'绕一点路也没关系，新的风景正在那里。',m:'不按计划的探索，常常会带来意外的收获。',p:'换一条熟悉的回家路线，留意沿途的新事物。'},
+      {c:'安定 · GROUND',q:'回到身体，回到此刻，回到你能掌握的事。',m:'当思绪飘远时，感受脚下的地面。',p:'慢慢呼吸三次，感受双脚接触地面。'},
+      {c:'收尾 · FINISH',q:'认真结束一件小事，也是在为下一件事腾地方。',m:'完成会带来轻盈感。',p:'选一个五分钟内能收尾的任务，今天把它完成。'},
+      {c:'相遇 · ENCOUNTER',q:'和一个新观点相遇，先别急着评判。',m:'不同的想法可以先并排存在一会儿。',p:'找一篇与你平时立场不同的短文，读完再想想。'}
+    ];
+    const $=id=>document.getElementById(id);const now=new Date();const dateKey=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+    $('today').textContent=new Intl.DateTimeFormat('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'}).format(now);
+    let current=null;try{const saved=JSON.parse(localStorage.getItem('daily-inspiration-v1')||'null');if(saved&&saved.date===dateKey&&Number.isInteger(saved.index)&&lots[saved.index])show(saved.index,false)}catch{}
+    function show(index,animate=true){current=lots[index];$('category').textContent=current.c;$('quote').textContent='「'+current.q+'」';$('meaning').textContent=current.m;$('prompt').textContent='给自己的一个小行动：'+current.p;$('card').classList.add('ready');$('share').hidden=false;if(animate){$('card').classList.remove('pop');void $('card').offsetWidth;$('card').classList.add('pop')}try{localStorage.setItem('daily-inspiration-v1',JSON.stringify({date:dateKey,index}))}catch{}}
+    $('draw').addEventListener('click',()=>{let index=Math.floor(Math.random()*lots.length);if(current&&lots.length>1&&lots[index]===current)index=(index+1)%lots.length;show(index,true);$('draw').innerHTML='再抽一张 <span>↻</span>'});
+    function shareText(){return `今日灵感签｜${current.q}\n${current.m}\n\n抽一张：${location.href}`}
+    $('share').addEventListener('click',async()=>{if(!current)return;try{if(navigator.share){await navigator.share({title:'今日灵感签',text:shareText(),url:location.href});return}await navigator.clipboard.writeText(shareText());toast('签文和链接已复制')}catch(e){if(e.name!=='AbortError')fallbackCopy(shareText())}});
+    function fallbackCopy(text){const el=document.createElement('textarea');el.value=text;el.style.position='fixed';el.style.opacity='0';document.body.append(el);el.select();try{document.execCommand('copy');toast('签文和链接已复制')}catch{toast('复制失败，请手动复制页面链接')}el.remove()}
+    let timer;function toast(message){$('toast').textContent=message;$('toast').classList.add('show');clearTimeout(timer);timer=setTimeout(()=>$('toast').classList.remove('show'),2200)}
+  </script>
+</body>
+</html>
+
