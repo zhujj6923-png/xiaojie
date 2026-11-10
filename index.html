@@ -1,140 +1,75 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f5f4ef" />
-    <meta name="description" content="一个关于我、我的工作与想法的个人网站。" />
-    <title>你好，我是 Alex — 个人主页</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <style>
-      :root { --paper:#f5f4ef; --ink:#20231f; --muted:#71756c; --line:#dcded5; --green:#315b45; --lime:#d9ee8d; --white:#fffefa; }
-      * { box-sizing:border-box; }
-      html { scroll-behavior:smooth; }
-      body { margin:0; background:var(--paper); color:var(--ink); font-family:"DM Sans","Noto Sans SC",sans-serif; -webkit-font-smoothing:antialiased; }
-      a { color:inherit; text-decoration:none; }
-      .shell { width:min(1120px, calc(100% - 48px)); margin:auto; }
-      .nav { height:82px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
-      .brand { font-weight:700; letter-spacing:-.06em; font-size:20px; }
-      .brand span { color:var(--green); }
-      .nav-links { display:flex; gap:34px; align-items:center; font-size:13px; color:#555a51; }
-      .nav-links a:hover, .text-link:hover { color:var(--green); }
-      .nav-cta { padding:11px 16px; border:1px solid var(--ink); border-radius:3px; color:var(--ink); }
-      .hero { min-height:640px; display:grid; grid-template-columns:1.12fr .88fr; align-items:center; gap:60px; padding:76px 0 90px; }
-      .eyebrow, .mono { font-family:"DM Mono",monospace; text-transform:uppercase; letter-spacing:.12em; font-size:11px; }
-      .eyebrow { display:flex; align-items:center; gap:10px; color:var(--green); }
-      .eyebrow:before { content:""; width:24px; height:1px; background:currentColor; }
-      h1 { margin:23px 0 22px; font-size:clamp(52px, 7.5vw, 92px); line-height:1.06; letter-spacing:-.075em; font-weight:600; }
-      h1 .accent { color:var(--green); }
-      .hero-copy { max-width:490px; color:var(--muted); font-size:16px; line-height:1.9; }
-      .hero-actions { display:flex; align-items:center; gap:24px; margin-top:34px; font-size:13px; }
-      .button { background:var(--green); color:white; padding:15px 21px; border-radius:3px; display:inline-flex; gap:18px; align-items:center; transition:transform .2s, background .2s; }
-      .button:hover { background:#234431; transform:translateY(-2px); }
-      .text-link { border-bottom:1px solid #aeb2a8; padding-bottom:5px; }
-      .visual { height:430px; position:relative; display:flex; justify-content:center; align-items:center; }
-      .orbit { position:absolute; width:350px; height:350px; border:1px solid #cbd0c3; border-radius:50%; }
-      .orbit:before,.orbit:after { content:""; position:absolute; border:1px solid #d6d9d0; border-radius:50%; inset:23px; }
-      .orbit:after { inset:48px; }
-      .portrait { width:260px; height:330px; border-radius:46% 46% 5px 5px; background:linear-gradient(145deg,#aab99a,#718a70 53%,#3d604c); position:relative; overflow:hidden; box-shadow:0 24px 60px #263a2826; }
-      .portrait:before { content:""; position:absolute; width:135px; height:165px; top:61px; left:63px; border-radius:48% 48% 44% 44%; background:#e7c7a6; box-shadow:inset -15px -6px #d5ad8c; }
-      .portrait:after { content:""; position:absolute; width:155px; height:100px; left:52px; top:35px; background:#302b24; border-radius:80% 80% 20% 20%; transform:rotate(-6deg); box-shadow:38px 18px 0 -16px #302b24,-32px 16px 0 -17px #302b24; }
-      .shirt { position:absolute; z-index:1; bottom:-40px; left:28px; width:205px; height:165px; border-radius:48% 48% 0 0; background:#edece4; }
-      .portrait-tag { position:absolute; z-index:2; left:2px; bottom:20px; background:var(--lime); padding:13px 16px; font-size:11px; font-family:"DM Mono",monospace; transform:rotate(-5deg); }
-      .sun { position:absolute; width:65px; height:65px; right:24px; top:45px; background:var(--lime); border-radius:50%; }
-      .spark { position:absolute; color:var(--green); font-size:25px; }
-      .spark.one { left:34px; top:76px; }.spark.two { right:14px; bottom:74px; font-size:17px; }
-      .status { display:flex; align-items:center; gap:9px; margin-top:52px; color:var(--muted); font-size:11px; }
-      .dot { width:7px; height:7px; border-radius:100%; background:#6a9c70; box-shadow:0 0 0 4px #6a9c7020; }
-      .section { border-top:1px solid var(--line); padding:86px 0; }
-      .section-head { display:flex; justify-content:space-between; align-items:end; margin-bottom:40px; }
-      .section-label { color:var(--green); margin-bottom:13px; }
-      h2 { font-size:clamp(32px,4vw,48px); letter-spacing:-.06em; line-height:1.15; font-weight:500; margin:0; }
-      .section-note { color:var(--muted); font-size:13px; max-width:300px; line-height:1.7; }
-      .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; }
-      .about-copy { color:#656a61; font-size:15px; line-height:1.95; max-width:490px; }
-      .about-copy p { margin:0 0 18px; }
-      .facts { display:grid; grid-template-columns:1fr 1fr; gap:28px 18px; align-content:center; }
-      .fact { border-top:1px solid var(--line); padding-top:14px; }
-      .fact .mono { color:var(--muted); font-size:10px; }
-      .fact strong { display:block; margin-top:9px; font-size:15px; font-weight:500; }
-      .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-      .project { min-height:270px; background:var(--white); border:1px solid #e6e7df; padding:24px; display:flex; flex-direction:column; transition:transform .2s, box-shadow .2s; }
-      .project:hover { transform:translateY(-4px); box-shadow:0 12px 35px #263a2810; }
-      .project-art { height:110px; margin-bottom:23px; background:#e5ebdc; position:relative; overflow:hidden; }
-      .project:nth-child(2) .project-art { background:#e8e3d9; }.project:nth-child(3) .project-art { background:#dde8e5; }
-      .art-shape { position:absolute; width:105px; height:105px; border-radius:50%; background:#9eb287; right:29px; top:27px; }
-      .art-line { position:absolute; width:140px; height:50px; border:1px solid #547258; transform:rotate(-32deg); left:25px; top:35px; border-radius:50%; }
-      .project:nth-child(2) .art-shape { width:140px; height:68px; border-radius:80px 80px 8px 8px; background:#bb9b72; top:43px; right:32px; }
-      .project:nth-child(2) .art-line { border-color:#867457; transform:rotate(28deg); }
-      .project:nth-child(3) .art-shape { background:#a3b9b5; width:70px; height:70px; border-radius:4px; transform:rotate(15deg); top:20px; right:65px; }
-      .project:nth-child(3) .art-line { border-color:#52776e; transform:rotate(0); width:95px; height:95px; left:35px; top:5px; border-radius:50%; }
-      .project .mono { color:var(--muted); font-size:10px; }
-      .project h3 { font-size:18px; font-weight:500; margin:10px 0 7px; letter-spacing:-.03em; }
-      .project p { margin:0; font-size:12px; line-height:1.7; color:var(--muted); }
-      .project-arrow { margin-top:auto; align-self:flex-end; font-size:18px; color:var(--green); }
-      .contact { background:var(--green); color:#f5f4ef; padding:78px 0; }
-      .contact-inner { display:flex; justify-content:space-between; align-items:end; gap:40px; }
-      .contact .section-label { color:var(--lime); }.contact h2 { font-size:clamp(38px,6vw,68px); }
-      .contact-copy { color:#d2ddd3; font-size:13px; line-height:1.8; margin-top:16px; }
-      .contact-button { background:var(--lime); color:#263a2c; padding:15px 20px; border-radius:3px; white-space:nowrap; font-size:13px; }
-      footer { padding:23px 0; display:flex; justify-content:space-between; color:var(--muted); font-size:11px; }
-      .socials { display:flex; gap:20px; }
-      @media (max-width:760px) {
-        .shell { width:min(100% - 36px, 560px); }
-        .nav { height:68px; }.nav-links { gap:15px; }.nav-links a:not(.nav-cta) { display:none; }.nav-cta { padding:9px 12px; }
-        .hero { min-height:0; grid-template-columns:1fr; gap:20px; padding:67px 0 60px; }.hero h1 { font-size:64px; }.visual { height:350px; order:-1; }.orbit { width:285px; height:285px; }.portrait { transform:scale(.82); }.sun { right:6%; top:18px; }
-        .status { margin-top:30px; }.section { padding:62px 0; }.section-head { display:block; }.section-note { margin-top:16px; }.about-grid { grid-template-columns:1fr; gap:30px; }.projects { grid-template-columns:1fr; }.project { min-height:240px; }.project-art { height:100px; }
-        .contact { padding:60px 0; }.contact-inner { align-items:start; flex-direction:column; }.contact-button { margin-top:5px; } footer { gap:15px; flex-wrap:wrap; }
-      }
-      @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*:before,*:after { transition:none !important; } }
-    </style>
-  </head>
-  <body>
-    <header class="shell nav">
-      <a class="brand" href="#top">alex<span>.</span></a>
-      <nav class="nav-links" aria-label="主导航">
-        <a href="#about">关于我</a><a href="#work">我的作品</a><a class="nav-cta" href="#contact">联系我 ↗</a>
-      </nav>
-    </header>
-    <main id="top">
-      <section class="shell hero">
-        <div>
-          <div class="eyebrow">你好，欢迎来到我的小站</div>
-          <h1>把想法<br />变成<span class="accent">现实。</span></h1>
-          <p class="hero-copy">我是 Alex，一名热爱创造与探索的独立创作者。在设计、技术与日常生活的交汇处，寻找有趣的问题，并把答案做出来。</p>
-          <div class="hero-actions"><a class="button" href="#work">看看我的作品 <span>↘</span></a><a class="text-link" href="#about">更多关于我</a></div>
-          <div class="status"><i class="dot"></i>目前开放合作机会</div>
-        </div>
-        <div class="visual" aria-label="抽象人物插画">
-          <div class="orbit"></div><div class="sun"></div><span class="spark one">✳</span><span class="spark two">✳</span>
-          <div class="portrait"><div class="shirt"></div></div><div class="portrait-tag">持续好奇中&nbsp; ↗</div>
-        </div>
-      </section>
-      <section class="section" id="about">
-        <div class="shell">
-          <div class="section-head"><div><div class="mono section-label">01 / ABOUT</div><h2>关于我</h2></div><p class="section-note">相信好的作品，来自持续的好奇心、耐心和一点点勇气。</p></div>
-          <div class="about-grid">
-            <div class="about-copy"><p>你好，我是 Alex。目前生活在中国，喜欢把复杂的事情变简单，把脑海里的点子变成真实可用的东西。</p><p>工作之外，我喜欢阅读、散步和记录日常。这个网站是我的数字名片，也是一个持续更新的个人空间。</p><p>如果你有有趣的想法，或者只是想打个招呼，欢迎给我写信。</p></div>
-            <div class="facts"><div class="fact"><span class="mono">BASED IN</span><strong>中国 · 随时在线</strong></div><div class="fact"><span class="mono">FOCUS</span><strong>设计 · 创造 · 探索</strong></div><div class="fact"><span class="mono">CURRENTLY</span><strong>学习与创作中</strong></div><div class="fact"><span class="mono">LANGUAGES</span><strong>中文 / English</strong></div></div>
-          </div>
-        </div>
-      </section>
-      <section class="section" id="work">
-        <div class="shell">
-          <div class="section-head"><div><div class="mono section-label">02 / SELECTED WORK</div><h2>一些小小的作品</h2></div><p class="section-note">这里可以放你做过的项目、文章、摄影或任何你想分享的东西。</p></div>
-          <div class="projects">
-            <a class="project" href="#contact"><div class="project-art"><span class="art-shape"></span><span class="art-line"></span></div><span class="mono">PERSONAL PROJECT · 2025</span><h3>慢慢生活指南</h3><p>一个关于留白、节奏与日常灵感的小型数字项目。</p><span class="project-arrow">↗</span></a>
-            <a class="project" href="#contact"><div class="project-art"><span class="art-shape"></span><span class="art-line"></span></div><span class="mono">BRANDING · 2024</span><h3>山野咖啡计划</h3><p>为一间想把自然带进城市的咖啡店打造视觉故事。</p><span class="project-arrow">↗</span></a>
-            <a class="project" href="#contact"><div class="project-art"><span class="art-shape"></span><span class="art-line"></span></div><span class="mono">EXPERIMENT · 2024</span><h3>灵感收集器</h3><p>把零散的想法收纳起来，让灵感有机会长成作品。</p><span class="project-arrow">↗</span></a>
-          </div>
-        </div>
-      </section>
-      <section class="contact" id="contact"><div class="shell contact-inner"><div><div class="mono section-label">03 / SAY HELLO</div><h2>聊聊你的想法吧。</h2><p class="contact-copy">有项目想合作，或只是想认识新朋友？<br />我的收件箱一直欢迎有趣的来信。</p></div><a class="contact-button" href="mailto:hello@example.com">hello@example.com&nbsp; ↗</a></div></section>
-    </main>
-    <footer class="shell"><span>© <span id="year"></span> Alex. 用好奇心制作。</span><div class="socials"><a href="https://github.com/" aria-label="GitHub">GitHub ↗</a><a href="mailto:hello@example.com">Email ↗</a></div></footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f4ed" />
+  <meta name="description" content="福建信息职业技术学院校园与专业介绍：学校概况、专业方向、校区地址及官方招生信息入口。" />
+  <title>认识福建信息职院 · 福建信息职业技术学院介绍</title>
+  <style>
+    :root{--paper:#f5f4ed;--ink:#202720;--muted:#69736b;--green:#315b46;--deep:#1e382c;--lime:#d7ed8a;--line:#d9ddd2;--white:#fffef9;--orange:#dc7956}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Noto Sans SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:14px;letter-spacing:.02em}.seal{width:35px;height:35px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:var(--lime);font-size:12px;letter-spacing:0}.navlinks{display:flex;align-items:center;gap:30px;font-size:13px;color:#596359}.navlinks a:hover{color:var(--green)}.navlinks .official{border:1px solid var(--green);color:var(--green);padding:11px 15px;border-radius:2px}
+    .hero{min-height:630px;display:grid;grid-template-columns:1fr .95fr;align-items:center;gap:52px;padding:80px 0 90px}.eyebrow,.mono{font-family:"Courier New",monospace;text-transform:uppercase;letter-spacing:.13em;font-size:11px}.eyebrow{color:var(--green);display:flex;gap:10px;align-items:center}.eyebrow:before{content:"";height:1px;width:25px;background:currentColor}.hero h1{font-size:clamp(46px,6.7vw,82px);line-height:1.13;letter-spacing:-.075em;margin:25px 0 24px;font-weight:650}.hero h1 span{color:var(--green)}.lead{font-size:16px;line-height:1.95;color:var(--muted);max-width:530px}.actions{display:flex;align-items:center;gap:22px;margin-top:32px;font-size:13px}.button{display:inline-flex;align-items:center;gap:18px;background:var(--green);color:white;padding:15px 19px;border-radius:2px}.button:hover{background:var(--deep)}.underlink{border-bottom:1px solid #abb5a8;padding-bottom:5px}.quick{display:flex;gap:30px;margin-top:48px}.quick strong{display:block;font-size:20px;letter-spacing:-.04em}.quick span{display:block;color:var(--muted);font-size:11px;margin-top:5px}
+    .hero-art{height:420px;position:relative;background:#e7e9dc;overflow:hidden;border-radius:3px}.hero-art:before{content:"";position:absolute;width:430px;height:430px;border:1px solid #c4cdbd;border-radius:50%;top:28px;left:50%;transform:translateX(-50%);box-shadow:0 0 0 32px #e7e9dc,0 0 0 33px #c4cdbd,0 0 0 70px #e7e9dc,0 0 0 71px #c4cdbd}.sun{position:absolute;width:86px;height:86px;border-radius:50%;background:var(--lime);top:47px;right:13%}.hill{position:absolute;bottom:-60px;width:115%;height:255px;background:#9eaf91;border-radius:50% 50% 0 0;left:-8%;transform:rotate(-7deg)}.hill.two{bottom:-109px;height:260px;background:#718b72;transform:rotate(9deg);left:-4%}.campus-block{position:absolute;z-index:2;bottom:76px;left:17%;width:66%;height:145px;background:#f3f0df;clip-path:polygon(0 26%,50% 0,100% 26%,100% 100%,0 100%);filter:drop-shadow(0 9px 2px #46614640)}.campus-block:before{content:"";position:absolute;left:8%;right:8%;top:48px;height:97px;background:repeating-linear-gradient(90deg,#c7ccb9 0 2px,transparent 2px 34px),repeating-linear-gradient(0deg,transparent 0 27px,#c7ccb9 27px 29px)}.campus-base{position:absolute;z-index:3;bottom:65px;left:14%;width:72%;height:15px;background:#d0cdb8}.art-label{position:absolute;z-index:4;left:22px;top:22px;font:11px "Courier New",monospace;letter-spacing:.1em;color:var(--green)}.art-note{position:absolute;z-index:4;right:20px;bottom:18px;background:var(--lime);padding:12px 14px;font-size:11px;transform:rotate(-3deg)}
+    .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;color:var(--green);font:11px "Courier New",monospace;letter-spacing:.12em;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .section{padding:88px 0;border-bottom:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px}.label{color:var(--green);margin-bottom:13px}.section h2{font-size:clamp(32px,4vw,48px);letter-spacing:-.06em;line-height:1.2;font-weight:550;margin:0}.section-note{max-width:340px;color:var(--muted);font-size:13px;line-height:1.8;margin:0}.intro-grid{display:grid;grid-template-columns:1fr .85fr;gap:90px}.intro-copy{max-width:550px;color:#606a61;font-size:15px;line-height:2}.intro-copy p{margin:0 0 15px}.values{display:grid;grid-template-columns:1fr 1fr;gap:20px}.value{border-top:1px solid var(--line);padding-top:15px}.value small{color:var(--muted);font:10px "Courier New",monospace;letter-spacing:.1em}.value strong{display:block;margin-top:10px;font-size:15px;font-weight:550;line-height:1.6}
+    .schools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.school{background:var(--white);border:1px solid #e2e4db;padding:22px;min-height:257px;display:flex;flex-direction:column}.school-num{font:11px "Courier New",monospace;color:var(--green)}.school h3{font-size:19px;letter-spacing:-.04em;margin:22px 0 10px}.school p{color:var(--muted);font-size:12px;line-height:1.8;margin:0}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:23px}.tag{font-size:10px;border:1px solid #dce1d7;padding:6px 8px;color:#536253;border-radius:20px}
+    .campuses{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.campus{background:var(--deep);color:#f4f3e9;min-height:260px;padding:24px;display:flex;flex-direction:column;position:relative;overflow:hidden}.campus:after{content:"";position:absolute;width:170px;height:170px;border:1px solid #ffffff22;border-radius:50%;right:-43px;top:40px;box-shadow:0 0 0 22px #ffffff08,0 0 0 45px #ffffff08}.campus:nth-child(2){background:#586d59}.campus:nth-child(3){background:#b06f50}.campus .mono{color:var(--lime);font-size:10px}.campus h3{font-size:21px;margin:17px 0 10px;position:relative;z-index:1}.campus address{font-style:normal;color:#e0e4da;font-size:12px;line-height:1.8;max-width:230px;position:relative;z-index:1}.campus .campus-link{margin-top:auto;padding-top:24px;font-size:11px;color:#e1efb0;position:relative;z-index:2}.notice{margin-top:15px;color:var(--muted);font-size:11px;line-height:1.8}
+    .resources{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.resource-main{background:var(--lime);padding:30px;min-height:235px;display:flex;flex-direction:column;align-items:start}.resource-main h3{font-size:25px;letter-spacing:-.05em;margin:23px 0 9px}.resource-main p{font-size:13px;line-height:1.8;color:#526044;max-width:420px}.resource-main .button{margin-top:auto;background:var(--deep)}.resource-list{display:flex;flex-direction:column;gap:10px}.resource-list a{background:var(--white);border:1px solid #e2e4db;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;font-size:13px}.resource-list a:hover{border-color:var(--green);color:var(--green)}.resource-list span{font-size:17px}.disclaimer{font-size:11px;line-height:1.8;color:var(--muted);margin-top:28px;padding-top:18px;border-top:1px solid var(--line)}
+    footer{padding:24px 0;display:flex;justify-content:space-between;gap:20px;align-items:center;color:var(--muted);font-size:11px}.footerlinks{display:flex;gap:18px}.footerlinks a:hover{color:var(--green)}
+    @media(max-width:780px){.wrap{width:min(100% - 36px,600px)}.nav{height:70px}.navlinks{gap:14px}.navlinks a:not(.official){display:none}.navlinks .official{padding:9px 11px}.hero{grid-template-columns:1fr;gap:32px;padding:55px 0 62px}.hero h1{font-size:61px}.hero-art{height:330px;order:-1}.hero-art:before{width:320px;height:320px}.campus-block{bottom:58px;height:125px}.campus-base{bottom:49px}.quick{gap:22px;margin-top:36px}.section{padding:62px 0}.section-head{display:block}.section-note{margin-top:14px}.intro-grid{grid-template-columns:1fr;gap:30px}.schools,.campuses{grid-template-columns:1fr}.school,.campus{min-height:220px}.resources{grid-template-columns:1fr}.resource-list{gap:8px}.ticker{font-size:9px}footer{align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="#top"><span class="seal">闽信</span><span>福建信息职业技术学院<br /><small style="font-weight:400;color:#788178;font-size:10px;letter-spacing:.08em">FUJIAN POLYTECHNIC OF INFORMATION TECHNOLOGY</small></span></a>
+    <nav class="navlinks" aria-label="主导航"><a href="#about">学校概况</a><a href="#majors">专业方向</a><a href="#campus">校区信息</a><a class="official" href="https://www.fjpit.edu.cn/" target="_blank" rel="noopener">学校官网 ↗</a></nav>
+  </header>
+  <main id="top">
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">FUJIAN · FUZHOU · PINGTAN</div>
+        <h1>在山海之间，<br /><span>学以致用。</span></h1>
+        <p class="lead">走近福建信息职业技术学院——一所以工科为主，商旅文创相结合，以信息技术和闽台合作为特色的全日制普通高职院校。</p>
+        <div class="actions"><a class="button" href="#about">认识这所学校 <span>↘</span></a><a class="underlink" href="#majors">探索专业方向</a></div>
+        <div class="quick"><div><strong>1906</strong><span>办学历史源头</span></div><div><strong>3</strong><span>个校区</span></div><div><strong>2003</strong><span>合并升格建校</span></div></div>
+      </div>
+      <div class="hero-art" role="img" aria-label="以校园和山海为灵感的插画"><span class="art-label">LEARN · CREATE · PRACTICE</span><span class="sun"></span><div class="hill"></div><div class="hill two"></div><div class="campus-block"></div><div class="campus-base"></div><span class="art-note">厚德强能 · 知行并进</span></div>
+    </section>
+    <div class="wrap ticker"><span>厚德强能</span><span>立足福建 · 融入平潭</span><span>信息技术 × 产业实践</span><span>一所面向未来的高职院校</span></div>
+    <section class="section" id="about"><div class="wrap">
+      <div class="section-head"><div><div class="mono label">01 / ABOUT THE SCHOOL</div><h2>一所面向产业与未来的学校</h2></div><p class="section-note">从百年职教积淀出发，在数字技术、先进制造与区域发展中培养技术技能人才。</p></div>
+      <div class="intro-grid"><div class="intro-copy"><p>福建信息职业技术学院是福建省人民政府举办、福建省教育厅主管的全日制普通高职院校。学校以工科为主，商旅文创相结合，以信息技术和闽台合作为特色。</p><p>学校办学历史源于1906年创办的福建官立中等商业学堂和福州青年会书院。2003年，福建电子工业学校、福建工程学校、福建省商业学校合并升格成立福建信息职业技术学院。</p><p>学校秉承“厚德强能”校训，面向福建产业发展与区域需求，注重专业学习、实践能力和技术技能培养。</p></div><div class="values"><div class="value"><small>SCHOOL TYPE</small><strong>省属公办<br />全日制高职院校</strong></div><div class="value"><small>FEATURES</small><strong>信息技术<br />闽台合作</strong></div><div class="value"><small>EDUCATION</small><strong>工科为主<br />商旅文创协同</strong></div><div class="value"><small>MOTTO</small><strong>厚德强能</strong></div></div></div>
+    </div></section>
+    <section class="section" id="majors"><div class="wrap">
+      <div class="section-head"><div><div class="mono label">02 / STUDY AREAS</div><h2>多元专业，连接真实行业</h2></div><p class="section-note">学校专业覆盖数字技术、智能制造、商贸管理、建筑工程与文化创意等方向。以下为专业领域概览。</p></div>
+      <div class="schools">
+        <article class="school"><span class="school-num">01 — DIGITAL & AI</span><h3>物联网与人工智能</h3><p>聚焦数字基础设施与智能应用，学习从网络、软件到人工智能应用的技术。</p><div class="tags"><span class="tag">物联网应用技术</span><span class="tag">软件技术</span><span class="tag">人工智能技术应用</span><span class="tag">信息安全技术应用</span></div></article>
+        <article class="school"><span class="school-num">02 — SMART MANUFACTURING</span><h3>智能制造</h3><p>面向先进制造业，结合机电、电气控制、工业机器人与新能源汽车等产业需求。</p><div class="tags"><span class="tag">机电一体化</span><span class="tag">工业机器人</span><span class="tag">电气自动化</span><span class="tag">新能源汽车</span></div></article>
+        <article class="school"><span class="school-num">03 — CULTURE & TOURISM</span><h3>文化创意与旅游</h3><p>连接文旅服务、视觉表达与数字内容生产，探索创意如何转化为体验。</p><div class="tags"><span class="tag">数字媒体艺术设计</span><span class="tag">旅游管理</span><span class="tag">融媒体技术与运营</span><span class="tag">广告艺术设计</span></div></article>
+        <article class="school"><span class="school-num">04 — CONSTRUCTION</span><h3>建筑工程</h3><p>关注建筑工程建设、空间测绘与数字化建模应用。</p><div class="tags"><span class="tag">建筑工程技术</span><span class="tag">测绘地理信息技术</span><span class="tag">摄影测量与遥感</span></div></article>
+        <article class="school"><span class="school-num">05 — BUSINESS</span><h3>商贸管理</h3><p>围绕数字商业运营、会计、电子商务与现代物流培养实践能力。</p><div class="tags"><span class="tag">电子商务</span><span class="tag">大数据与会计</span><span class="tag">跨境电子商务</span><span class="tag">现代物流管理</span></div></article>
+        <article class="school"><span class="school-num">06 — DIGITAL TECHNOLOGY</span><h3>数字技术</h3><p>通过移动互联、虚拟现实、数字媒体与影视动画等方向，学习数字内容和产品开发。</p><div class="tags"><span class="tag">计算机应用技术</span><span class="tag">虚拟现实技术应用</span><span class="tag">数字媒体技术</span><span class="tag">影视动画</span></div></article>
+      </div>
+      <p class="notice">专业方向为介绍性摘要，招生专业及校区分布可能按年度调整；报考前请以学校当年招生章程和专业目录为准。</p>
+    </div></section>
+    <section class="section" id="campus"><div class="wrap">
+      <div class="section-head"><div><div class="mono label">03 / CAMPUS LIFE</div><h2>福州与平潭，三处校园</h2></div><p class="section-note">学校设有龙腰、杜园和平潭校区。专业所在校区以当年官方公布为准。</p></div>
+      <div class="campuses">
+        <article class="campus"><span class="mono">FUZHOU · GULOU</span><h3>龙腰校区</h3><address>福州市鼓楼区福飞南路106号</address><a class="campus-link" href="https://maps.google.com/?q=福建信息职业技术学院龙腰校区" target="_blank" rel="noopener">查看地图 ↗</a></article>
+        <article class="campus"><span class="mono">FUZHOU · CANGSHAN</span><h3>杜园校区</h3><address>福州市仓山区螺洲杜园118号</address><a class="campus-link" href="https://maps.google.com/?q=福建信息职业技术学院杜园校区" target="_blank" rel="noopener">查看地图 ↗</a></article>
+        <article class="campus"><span class="mono">PINGTAN · FUJIAN</span><h3>平潭校区</h3><address>平潭综合实验区麒麟大道西段1号</address><a class="campus-link" href="https://maps.google.com/?q=福建信息职业技术学院平潭校区" target="_blank" rel="noopener">查看地图 ↗</a></article>
+      </div>
+    </div></section>
+    <section class="section"><div class="wrap">
+      <div class="section-head"><div><div class="mono label">04 / EXPLORE MORE</div><h2>招生与校园信息</h2></div><p class="section-note">招生政策、专业目录、校园通知请查看学校官方发布。</p></div>
+      <div class="resources"><div class="resource-main"><span class="mono">OFFICIAL INFORMATION</span><h3>以官方信息为准</h3><p>查看最新招生章程、各校区专业分布、录取信息与校园动态。</p><a class="button" href="https://www.fjpit.edu.cn/" target="_blank" rel="noopener">访问学校官网 ↗</a></div><div class="resource-list"><a href="https://www.fjpit.edu.cn/2024/0304/c924a118091/page.htm" target="_blank" rel="noopener">学校简介 <span>↗</span></a><a href="https://www.fjpit.edu.cn/zs/2026/0613/c2094a131600/page.htm" target="_blank" rel="noopener">2026年校区专业分布 <span>↗</span></a><a href="https://www.fjpit.edu.cn/zs/2026/0331/c2094a129759/page.htm" target="_blank" rel="noopener">2026年招生章程 <span>↗</span></a></div></div>
+      <p class="disclaimer">本网站为个人制作的学校信息介绍页面，非福建信息职业技术学院官方网站，与学校无隶属关系。内容根据学校官网公开资料整理，可能存在更新延迟；招生、专业、校区与录取信息请以学校官方公告为准。学校名称及相关资料归其权利人所有。</p>
+    </div></section>
+  </main>
+  <footer class="wrap"><span>福建信息职业技术学院 · 学校介绍</span><div class="footerlinks"><a href="#top">回到顶部 ↑</a><a href="https://www.fjpit.edu.cn/" target="_blank" rel="noopener">学校官网 ↗</a></div></footer>
+</body>
 </html>
 
