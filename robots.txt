@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fujianxinxi.dpdns.org/sitemap.xml
