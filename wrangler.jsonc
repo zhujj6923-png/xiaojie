@@ -1,0 +1,13 @@
+{
+  // 站点 Worker：静态文件仍由 assets 直接提供，脚本只接管 /api/* 和 /ws/*
+  "name": "xiaojie",
+  "main": "src/index.js",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
